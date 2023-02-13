@@ -1,0 +1,34 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>UsuarioFooterPDF</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <div class="text-center">
+        <h4>
+            Página <span id='page'></span> de
+            <span id='topage'></span>
+            <span id='currentDate'></span>
+            <script>
+                var vars = {};
+                var x = window.location.search.substring(1).split('&');
+                for (var i in x) {
+                    var z = x[i].split('=', 2);
+                    vars[z[0]] = unescape(z[1]);
+                }
+                document.getElementById('page').innerHTML = vars.page;
+                document.getElementById('topage').innerHTML = vars.topage;
+
+                var today = new Date();
+                document.getElementById('currentDate').innerHTML = today.toLocaleDateString();
+            </script>
+        </h4>
+    </div>
+</body>
+</html>

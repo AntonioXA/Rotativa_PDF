@@ -1,0 +1,63 @@
+﻿@* Modelo de donde vamos a coger los datos *@
+@model IEnumerable<EFconASPyMVC.Models.Usuario>
+@{
+	ViewData["Title"] = "UsuarioPDF";
+}
+@{
+	Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<title>UsuarioPDF</title>
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+	<link rel="stylesheet" href="//css/site.css" />
+</head>
+<body>
+	<div class="row">
+		<div class="col-sm-8 text-right">
+			<h2>Lista de Usuarios</h2>
+		</div>
+	</div>
+	<table class="table">
+		<thead>
+			<tr>
+				@* Nombres de los campos de la tabla *@
+				<th>
+					@Html.DisplayNameFor(model => model.Id)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.NombreUsuario)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.AlumnoId)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.Alumno)
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				@*Valores de los campos en cada registro de la tabla *@
+				<tr>
+					<td>
+						@Html.DisplayFor(modelItem => item.Id)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.NombreUsuario)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.AlumnoId)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Alumno)
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</body>
+</html>

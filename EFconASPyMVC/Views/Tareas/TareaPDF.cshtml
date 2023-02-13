@@ -1,0 +1,57 @@
+﻿@* Modelo de donde vamos a coger los datos *@
+@model IEnumerable<EFconASPyMVC.Models.Tarea>
+@{
+	ViewData["Title"] = "TareaPDF";
+}
+@{
+	Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<title>TareaPDF</title>
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+	<link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+	<div class="row">
+		<div class="col-sm-8 text-right">
+			<h2>Lista de Tareas</h2>
+		</div>
+	</div>
+	<table class="table">
+		<thead>
+			<tr>
+				@* Nombres de los campos de la tabla *@
+				<th>
+					@Html.DisplayNameFor(model => model.Id)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.Tema)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.AlumnoTareas)
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				@*Valores de los campos en cada registro de la tabla *@
+				<tr>
+					<td>
+						@Html.DisplayFor(modelItem => item.Id)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Tema)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.AlumnoTareas)
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</body>
+</html>
